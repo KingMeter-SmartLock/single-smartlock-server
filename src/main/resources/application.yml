@@ -1,0 +1,54 @@
+server:
+  port: 10003
+
+spring:
+  application:
+    name: Slave001
+  jackson:
+    serialization:
+      indent-output: true
+
+
+device:
+  loginFunctionCode: 40961
+
+kingmeter:
+  httpRequestFlag: false
+  default:
+    MinSoc : 10
+    companyCode: 2113
+    timezone: 8
+    password: 100419
+
+socket:
+  port: 10002
+  charset: utf-8
+  idle_timeout: 600
+  start_code_1: 0x40
+  start_code_2: 0x24
+  end_code_1: 0x0D
+  end_code_2: 0x0A
+  token_length: 4
+
+  # readIdleTimeLimit
+  readIdleTimeLimit: 600
+  writeIdleTimeLimit: 0
+  allIdleTimeLimit: 0
+
+  #other config
+  waitSeconds: 180
+
+  bossThreads: 1
+  workerThreads: 8
+  useLinuxNativeEpoll: false
+  tcpNoDelay: true
+  tcpSendBufferSize: -1
+  tcpReceiveBufferSize: -1
+  tcpKeepAlive: true
+  soLinger: -1
+  reuseAddress: true
+  acceptBackLog: 1024
+
+  #role Master,Slave 两种,Master 登录分发，Slave主要是干活的
+  role: Slave
+  ip: 127.0.0.1
